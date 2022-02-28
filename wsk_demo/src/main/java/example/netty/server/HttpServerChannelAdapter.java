@@ -1,4 +1,4 @@
-package example.netty;
+package example.netty.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -10,6 +10,13 @@ import io.netty.util.CharsetUtil;
 import java.nio.charset.Charset;
 import java.util.Map;
 
+/**
+ * 服务端接收消息的自定义处理类父类为：
+ *      ChannelInboundHandlerAdapter
+ * 客户端发送消息的自定义处理类父类为：
+ *      SimpleChannelInboundHandler
+ *  在初始化类中添加过处理类之后，在处理类中添加自己的业务逻辑
+ */
 public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
     private HttpRequest request;
     private FullHttpResponse response;

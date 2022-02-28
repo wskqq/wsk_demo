@@ -1,5 +1,6 @@
-package example.netty;
+package example.netty.server;
 
+import example.netty.server.HttpServerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -9,8 +10,10 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * Netty实现Http服务端实现测试类
+ * 服务端启动类
+ * 测试访问地址：  http://ip:port/
  */
-public class WskNettyTest {
+public class WskNettyServerTest {
     public static void main(String[] args) {
         // 构建两个线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -20,7 +23,7 @@ public class WskNettyTest {
         serverBootstrap.group(bossGroup,workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new HttpServerInitializer())
-                .option(ChannelOption.SO_BACKLOG,128)
+                .option(ChannelOption.SO_BACKLOG,1024)
                 .childOption(ChannelOption.SO_KEEPALIVE, true);
 
         try {

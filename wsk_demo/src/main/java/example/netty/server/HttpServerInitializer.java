@@ -1,14 +1,15 @@
-package example.netty;
+package example.netty.server;
 
+import example.netty.server.HttpServerChannelAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
-import io.netty.handler.codec.http.HttpServerCodec;
 
 /**
- * 业务责任链
+ * 初始化业务责任链，系统定义的 及 自定义的业务处理类
+ * 接收请求拦截类
  */
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
@@ -19,7 +20,6 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
         channelPipeline.addLast("httpResponseEndcoder",new HttpResponseEncoder());
         channelPipeline.addLast("httpRequestDecoder",new HttpRequestDecoder());
         // 添加自定义的ChannelHandler
-//        channelPipeline.addLast(new HttpServerChannelHandler());
         channelPipeline.addLast(new HttpServerChannelAdapter());
     }
 }

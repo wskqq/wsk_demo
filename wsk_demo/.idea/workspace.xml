@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5eb8b8a-8f83-4158-9cbb-cad796fed5bd" name="Default Changelist" comment="" />
+    <list default="true" id="d5eb8b8a-8f83-4158-9cbb-cad796fed5bd" name="Default Changelist" comment="netty服务端实现类">
+      <change afterPath="$PROJECT_DIR$/../spring-demo/spring-demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskHttpClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskHttpClientInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskNettyClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerChannelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/HttpServerChannelAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerChannelHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/HttpServerInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/WskNettyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/WskNettyServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerChannelAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerChannelHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/WskNettyTest.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="wsk_demo" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -13,6 +32,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -24,6 +46,7 @@
     </option>
   </component>
   <component name="ProjectId" id="25EQ96skdYP6y9Uz4p4M9qd7D8B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,6 +54,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
@@ -47,13 +71,39 @@
       <recent name="E:\ideaworkspace\wsk_demo\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WskNettyTest">
-    <configuration name="WskNettyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="example.netty.WskNettyTest" />
+  <component name="RunManager" selected="Application.WskNettyClientTest">
+    <configuration name="HttpServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.netty.HttpServer" />
       <module name="wsk_demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="example.netty.*" />
+          <option name="PATTERN" value="example.netty.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WskNettyClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.netty.client.WskNettyClientTest" />
+      <module name="wsk_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.netty.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WskNettyServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.netty.server.WskNettyServerTest" />
+      <module name="wsk_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.netty.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,7 +139,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WskNettyTest" />
+        <item itemvalue="Application.WskNettyClientTest" />
+        <item itemvalue="Application.WskNettyServerTest" />
+        <item itemvalue="Application.HttpServer" />
         <item itemvalue="Application.WskXmlTest" />
         <item itemvalue="Application.WskRedissonTest" />
       </list>
@@ -108,7 +160,8 @@
       <workItem from="1645089641521" duration="4514000" />
       <workItem from="1645683229174" duration="317000" />
       <workItem from="1645683611596" duration="10005000" />
-      <workItem from="1645774033180" duration="7602000" />
+      <workItem from="1645774033180" duration="8198000" />
+      <workItem from="1645857391780" duration="8908000" />
     </task>
     <servers />
   </component>
@@ -120,42 +173,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="21" key="#Live_Templates/0.0.1366.728@0.0.1366.728" timestamp="1645695781486" />
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1645776358182">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1645864384806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1645776358182" />
-    <state width="1322" height="211" key="GridCell.Tab.0.bottom" timestamp="1645780929774">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1645864384806" />
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1645862334951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="211" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1645780929774" />
-    <state width="1322" height="211" key="GridCell.Tab.0.center" timestamp="1645780929774">
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1645862334951" />
+    <state width="1322" height="214" key="GridCell.Tab.0.bottom" timestamp="1645870270396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="211" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1645780929774" />
-    <state width="1322" height="211" key="GridCell.Tab.0.left" timestamp="1645780929774">
+    <state width="1322" height="214" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1645870270396" />
+    <state width="1322" height="214" key="GridCell.Tab.0.center" timestamp="1645870270396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="211" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1645780929774" />
-    <state width="1322" height="211" key="GridCell.Tab.0.right" timestamp="1645780929774">
+    <state width="1322" height="214" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1645870270396" />
+    <state width="1322" height="214" key="GridCell.Tab.0.left" timestamp="1645870270396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="211" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1645780929774" />
-    <state width="880" height="205" key="GridCell.Tab.1.bottom" timestamp="1645780929624">
+    <state width="1322" height="214" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1645870270396" />
+    <state width="1322" height="214" key="GridCell.Tab.0.right" timestamp="1645870270396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="880" height="205" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1645780929624" />
-    <state width="880" height="205" key="GridCell.Tab.1.center" timestamp="1645780929624">
+    <state width="1322" height="214" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1645870270396" />
+    <state width="1322" height="211" key="GridCell.Tab.1.bottom" timestamp="1645864159437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="880" height="205" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1645780929624" />
-    <state width="880" height="205" key="GridCell.Tab.1.left" timestamp="1645780929624">
+    <state width="1322" height="211" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1645864159437" />
+    <state width="1322" height="211" key="GridCell.Tab.1.center" timestamp="1645864159437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="880" height="205" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1645780929624" />
-    <state width="880" height="205" key="GridCell.Tab.1.right" timestamp="1645780929624">
+    <state width="1322" height="211" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1645864159437" />
+    <state width="1322" height="211" key="GridCell.Tab.1.left" timestamp="1645864159437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="880" height="205" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1645780929624" />
+    <state width="1322" height="211" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1645864159437" />
+    <state width="1322" height="211" key="GridCell.Tab.1.right" timestamp="1645864159437">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="211" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1645864159437" />
     <state x="213" y="18" key="Maven.ArtifactSearchDialog" timestamp="1645696400769">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -164,10 +221,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="404" y="94" width="564" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1645688184275" />
-    <state x="363" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1645774500937">
+    <state x="363" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1646010394565">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1645774500936" />
+    <state x="363" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1646010394565" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1645090228357">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -180,11 +237,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/example/xml/WskXmlTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/example/netty/HttpServerChannelHandler.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
