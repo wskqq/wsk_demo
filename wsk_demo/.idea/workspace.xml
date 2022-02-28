@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5eb8b8a-8f83-4158-9cbb-cad796fed5bd" name="Default Changelist" comment="netty服务端实现类">
-      <change afterPath="$PROJECT_DIR$/../spring-demo/spring-demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskHttpClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskHttpClientInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/netty/client/WskNettyClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/zookeeper/WskZookeeperLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/zookeeper/WskZookeeperLockTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerChannelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/HttpServerChannelAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerChannelHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/HttpServerInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/HttpServerInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/netty/WskNettyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/netty/server/WskNettyServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerChannelAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerChannelHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/HttpServerInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/netty/WskNettyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/zookeeper/WskZookeeperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/zookeeper/WskZookeeperWatcherTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +151,7 @@
       <workItem from="1645683611596" duration="10005000" />
       <workItem from="1645774033180" duration="8198000" />
       <workItem from="1645857391780" duration="8908000" />
+      <workItem from="1646010381532" duration="7256000" />
     </task>
     <servers />
   </component>
@@ -173,10 +163,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="21" key="#Live_Templates/0.0.1366.728@0.0.1366.728" timestamp="1645695781486" />
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1645864384806">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1646030111443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1645864384806" />
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1646030111443" />
     <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1645862334951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
