@@ -78,6 +78,29 @@
             <version>4.1.72.Final</version>
         </dependency>
         <!-- Netty相关包 end -->
+        <!-- RabbtiMQ相关包 start -->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.14.2</version>
+        </dependency>
+        <!-- RabbtiMQ相关包 end -->
+        <!-- apache common-lang3实现自定义线程工厂 start -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+        <!-- apache common-lang3实现自定义线程工厂 end -->
+        <!-- 通过google的guava实现自定义线程工厂 start -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>
+        <!-- 通过google的guava实现自定义线程工厂 end -->
+
+        <!--  -->
     </dependencies>
     <build>
         <plugins>
