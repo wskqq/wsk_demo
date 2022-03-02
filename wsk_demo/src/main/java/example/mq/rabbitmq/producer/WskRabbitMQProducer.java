@@ -1,4 +1,4 @@
-package example.mq.producer;
+package example.mq.rabbitmq.producer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -9,8 +9,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * rabbitMQ生产者,可支持事务消息  TX事务模式
- * Confirm确认模式
+ * rabbitMQ生产者,可支持事务消息（TX事务模式，效率低，很少使用）
+ * 生产者确认模式Confirm
+ * 没有整合spring
  */
 public class WskRabbitMQProducer {
     public static void main(String[] args) {
