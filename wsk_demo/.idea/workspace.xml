@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5eb8b8a-8f83-4158-9cbb-cad796fed5bd" name="Default Changelist" comment="netty服务端实现类">
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/mq/springamqp/consumer/WskSpringRabbitConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/mq/springamqp/producer/WskSpringRabbitProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/mq/consumer/WskRabbitMQConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/mq/rabbitmq/consumer/WskRabbitMQConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/mq/producer/WskRabbitMQProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/mq/rabbitmq/producer/WskRabbitMQProducer.java" afterDir="false" />
-    </list>
+    <list default="true" id="d5eb8b8a-8f83-4158-9cbb-cad796fed5bd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,12 +148,60 @@
       <workItem from="1645857391780" duration="8908000" />
       <workItem from="1646010381532" duration="7856000" />
       <workItem from="1646096768015" duration="21010000" />
-      <workItem from="1646183132991" duration="10065000" />
+      <workItem from="1646183132991" duration="10412000" />
     </task>
+    <task id="LOCAL-00001" summary="rabbitmq操作Demo">
+      <created>1646202893062</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646202893062</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:E:/ideaworkspace/wsk_demo/src/main/java/example/mq" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rabbitmq操作Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="rabbitmq操作Demo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="21" key="#Live_Templates" timestamp="1645695781486">
@@ -175,10 +216,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="330" y="288" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1646185520382" />
-    <state x="37" y="0" key="CommitChangelistDialog2" timestamp="1646202786204">
+    <state x="37" y="0" key="CommitChangelistDialog2" timestamp="1646202891204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="37" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1646202786204" />
+    <state x="37" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1646202891204" />
+    <state x="147" y="54" key="DiffContextDialog" timestamp="1646202877212">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="147" y="54" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1646202877212" />
     <state width="1322" height="214" key="GridCell.Tab.0.bottom" timestamp="1645870270396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -219,6 +264,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="404" y="94" width="564" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1645688184275" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1646202898838">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1646202898838" />
     <state x="363" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1646183145712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
