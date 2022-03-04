@@ -6,7 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskMap {
     public static void main(String[] args) throws UnsupportedEncodingException {
         System.out.println(new String("都是".getBytes("GBK"),"GBK"));

@@ -17,6 +17,12 @@ import java.util.List;
  * 当前一位锁节点（lock_000000001）对应的客户端执行完成，释放了锁，将会触发监听客户端（lock_000000002）的逻辑。
  * 监听客户端重新执行第2步逻辑，判断自己是否获得了锁
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskZookeeperLock {
     private ZooKeeper zkClient;
     private String lockPath;

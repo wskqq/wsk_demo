@@ -9,6 +9,12 @@ import java.util.concurrent.CountDownLatch;
  * zookeeper测试类
  * watcher机制，watcher都是一次性的，需要持续监控的时候，需要重新设置
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskZookeeperWatcherTest {
     public static void main(String[] args) {
         final CountDownLatch countDownLatch = new CountDownLatch(1);

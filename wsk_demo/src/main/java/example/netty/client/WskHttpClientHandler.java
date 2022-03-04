@@ -13,6 +13,12 @@ import java.net.URI;
 /**
  * 客户端发送消息的自定义处理类
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskHttpClientHandler extends SimpleChannelInboundHandler<FullHttpResponse> {
     /**
      * 客户端发送消息

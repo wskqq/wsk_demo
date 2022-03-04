@@ -1,19 +1,28 @@
 package example;
 
+import example.exception.WskException;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Hello world!
- *
+ * @Description 测试
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
  */
-public class App 
+public class App
 {
-    ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
+//    static ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
     Map<String,String> map = new HashMap<String,String>();
     public static void main( String[] args )
     {
-
+        try {
+            test();
+        } catch (WskException e) {
+            e.printStackTrace();
+        }
+//        threadLocal.remove();
 //        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(WskConfig.class);
 //        WskUser wskUser = (WskUser) context.getBean("WskUser");
 //        System.out.println(wskUser.toString());
@@ -61,5 +70,8 @@ public class App
 //        Thread t2 = new Thread(r2);
 //        t2.start();
 
+    }
+    public static void test() throws WskException {
+        throw new WskException("测试异常");
     }
 }

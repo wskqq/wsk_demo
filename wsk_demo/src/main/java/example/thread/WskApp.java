@@ -7,12 +7,18 @@ import java.util.Map;
  * Hello world!
  *
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskApp
 {
     /**
      * 测试多个线程共享同一个对象的ThreadLocal，数据隔离的情况
      */
-    ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
+    static ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
     /**
      * 多个线程共享全局同一个对象的全局变量，数据不隔离
      */
@@ -30,5 +36,8 @@ public class WskApp
         wsk2.setParam(10L);
         wsk2.setWskApp(app);
         wsk2.start();
+
+        //用完必须清除，避免内存泄漏
+        threadLocal.remove();
     }
 }

@@ -3,7 +3,12 @@ package example.socket;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class SocketClientHandler extends Thread{
     private Socket socket;
 

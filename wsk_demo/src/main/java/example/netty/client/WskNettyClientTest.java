@@ -9,6 +9,12 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 /**
  * Netty客户端启动类
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskNettyClientTest {
     public static void main(String[] args) {
         String ip = "127.0.0.1";

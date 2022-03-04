@@ -11,6 +11,12 @@ import io.netty.handler.codec.http.HttpResponseEncoder;
  * 初始化业务责任链，系统定义的 及 自定义的业务处理类
  * 接收请求拦截类
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {

@@ -7,6 +7,12 @@ import java.net.Socket;
 /**
  * 通过传递信息头前的数据长度，来处理数据防止粘包与拆包
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskSocketServer {
     public static void main(String[] args) {
         int port = 8888;

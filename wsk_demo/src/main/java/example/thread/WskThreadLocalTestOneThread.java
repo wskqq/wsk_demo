@@ -1,5 +1,10 @@
 package example.thread;
-
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskThreadLocalTestOneThread extends Thread {
     Long wsk1;
     WskApp app;
@@ -14,10 +19,9 @@ public class WskThreadLocalTestOneThread extends Thread {
 
     @Override
     public void run() {
-
-        app.threadLocal.set(wsk1);
-        System.out.println(app.threadLocal.get());
-        System.out.println(app.threadLocal);
+        WskApp.threadLocal.set(wsk1);
+        System.out.println(WskApp.threadLocal.get());
+        System.out.println(WskApp.threadLocal);
 
         app.map.put("wsk1","wsk1Value");
         System.out.println(app.map);
@@ -26,7 +30,7 @@ public class WskThreadLocalTestOneThread extends Thread {
             Thread.sleep(10000L);
         } catch (InterruptedException e) {
         }
-        System.out.println(app.threadLocal.get());
+        System.out.println(WskApp.threadLocal.get());
 
 
     }

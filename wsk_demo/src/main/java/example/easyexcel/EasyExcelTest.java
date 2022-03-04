@@ -8,7 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 测试通过EasyExcel生成xlsx文件
+ * @Description 测试通过EasyExcel生成xlsx文件
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
  */
 public class EasyExcelTest {
     public static void main(String[] args) {
@@ -17,8 +20,9 @@ public class EasyExcelTest {
         EasyExcel.write(dirPath, EasyExcelPojo.class).sheet(sheetName).doWrite(dataList());
     }
     public static List<EasyExcelPojo> dataList(){
+        int cyclesNum = 1000000;
         List<EasyExcelPojo> list = new ArrayList<EasyExcelPojo>();
-        for(int i=0; i< 1000000; i++){
+        for(int i=0; i< cyclesNum; i++){
             EasyExcelPojo easyExcelPojo = new EasyExcelPojo();
             easyExcelPojo.setDateData(new Date());
             easyExcelPojo.setDounleData(12.12);

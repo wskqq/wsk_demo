@@ -4,7 +4,12 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.format.NumberFormat;
 
 import java.util.Date;
-
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class EasyExcelPojo {
     @ExcelProperty("字符串标题")
     private String stringData;

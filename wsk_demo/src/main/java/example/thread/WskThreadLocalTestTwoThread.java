@@ -1,5 +1,13 @@
 package example.thread;
 
+import java.util.Objects;
+
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskThreadLocalTestTwoThread extends Thread{
     Long wsk2;
     WskApp app;
@@ -11,9 +19,9 @@ public class WskThreadLocalTestTwoThread extends Thread{
     }
     @Override
     public void run() {
-        app.threadLocal.set(wsk2);
-        System.out.println(app.threadLocal.get());
-        System.out.println(app.threadLocal);
+        WskApp.threadLocal.set(wsk2);
+        System.out.println(WskApp.threadLocal.get());
+        System.out.println(WskApp.threadLocal);
 
         app.map.put("wsk2","wsk2Value");
         System.out.println(app.map);

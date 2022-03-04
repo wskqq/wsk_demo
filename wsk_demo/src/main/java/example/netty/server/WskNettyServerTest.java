@@ -13,6 +13,12 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * 服务端启动类
  * 测试访问地址：  http://ip:port/
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskNettyServerTest {
     public static void main(String[] args) {
         // 构建两个线程组

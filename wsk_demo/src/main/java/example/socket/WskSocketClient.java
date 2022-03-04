@@ -8,6 +8,12 @@ import java.net.UnknownHostException;
 /**
  * 粘包拆包socket客户端测试类
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskSocketClient {
     public static void main(String[] args) throws UnknownHostException {
         int port = 8888;
@@ -17,7 +23,8 @@ public class WskSocketClient {
             String message = "wsk ceshi";
             String msgNum = String.format("%06d",message.length());
             String message1 = msgNum + message;
-            for(int i=0; i<5; i++){
+            int cyclesNum = 5;
+            for(int i=0; i<cyclesNum; i++){
                 if(i == 0){
                     socket.getOutputStream().write(message1.getBytes());
                 }else{

@@ -6,6 +6,12 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 /**
  * spring整合rabbitmq消费者
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskSpringRabbitConsumer {
     public static void main(String[] args) {
         String ip = "127.0.0.1:5672";

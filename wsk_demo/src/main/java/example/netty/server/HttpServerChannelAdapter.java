@@ -17,6 +17,12 @@ import java.util.Map;
  *      SimpleChannelInboundHandler
  *  在初始化类中添加过处理类之后，在处理类中添加自己的业务逻辑
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
     private HttpRequest request;
     private FullHttpResponse response;

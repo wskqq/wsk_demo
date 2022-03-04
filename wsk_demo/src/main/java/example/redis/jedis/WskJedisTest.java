@@ -13,6 +13,12 @@ import java.util.UUID;
  *   通过redisson的redlock红锁解决
  * 并发要求不高的情况下：以上两个问题可以通过人工补偿机制解决
  */
+/**
+ * @Description TODO
+ * @Author acer
+ * @Date 2022/3/3 10:39
+ * @Version 1.0
+ */
 public class WskJedisTest {
     public static void main(String[] args) {
         Jedis jedis = new Jedis("127.0.0.1:6379");
@@ -27,7 +33,8 @@ public class WskJedisTest {
         String unLockLua = "if redis.call('get',KEYS[1]) == ARGV[1] then " +
                 "return redis.call('del',KEYS[1]) else return 0 end";
         // 获取锁
-        for(int i=0; i<10; i++){
+        int cyclesNum = 10;
+        for(int i=0; i<cyclesNum; i++){
             // 获取锁
             String lockResult = jedis.set(wskKey, wskValue, nxxx,expx,expireTime);
             if(lockSuccessCode.equals(lockResult)){
