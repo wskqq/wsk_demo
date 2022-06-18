@@ -2,6 +2,7 @@ package example.netty.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.*;
@@ -28,18 +29,39 @@ public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
     private FullHttpResponse response;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+
         //判断是不是http请求
-        if(msg instanceof HttpRequest){
-            HttpRequest httpRequest = (HttpRequest) msg;
-            parseUri(httpRequest);
-            parseHttpMethod(httpRequest);
-            parseHttpHeaders(httpRequest);
-            parseBody(httpRequest);
-            FullHttpResponse res = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.copiedBuffer("msg", CharsetUtil.UTF_8));
-            HttpUtil.setContentLength(res, res.content().readableBytes());
-            ctx.writeAndFlush(res);
+        if(msg instanceof FullHttpRequest){
+//            HttpRequest httpRequest = (HttpRequest) msg;
+//            parseUri(httpRequest);
+//            parseHttpMethod(httpRequest);
+//            parseHttpHeaders(httpRequest);
+//            parseBody(httpRequest);
+//            FullHttpResponse res = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.copiedBuffer("msg", CharsetUtil.UTF_8));
+//            res.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=utf-8");
+//            HttpUtil.setContentLength(res, res.content().readableBytes());
+//            ctx.writeAndFlush(res).addListener(ChannelFutureListener.CLOSE);
+
+            //获取httpRequest
+            FullHttpRequest httpRequest = (FullHttpRequest) msg;
+            try{
+                String uri = httpRequest.uri();
+                String content = httpRequest.content().toString(CharsetUtil.UTF_8);
+                HttpMethod method = httpRequest.method();
+
+                //响应
+                String responseMsg = "Hello World";
+                FullHttpResponse response = new DefaultFullHttpResponse(
+                        HttpVersion.HTTP_1_1,HttpResponseStatus.OK,
+                        Unpooled.copiedBuffer(responseMsg + "\n",CharsetUtil.UTF_8)
+                );
+                response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=UTF-8");
+                ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
+            }finally {
+                httpRequest.release();
+            }
+            super.channelRead(ctx, msg);
         }
-        super.channelRead(ctx, msg);
     }
     /**
      * 获得请求方式

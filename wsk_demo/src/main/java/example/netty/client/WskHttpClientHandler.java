@@ -27,7 +27,7 @@ public class WskHttpClientHandler extends SimpleChannelInboundHandler<FullHttpRe
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        String url = "http://127.0.0.1:8888/";
+        String url = "http://127.0.0.1:8889/";
         URI uri = new URI(url);
         String sendMsg = "Hello World! 你好世界";
         // 组装请求
