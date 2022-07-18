@@ -25,43 +25,37 @@ import java.util.Map;
  * @Version 1.0
  */
 public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
-    private HttpRequest request;
-    private FullHttpResponse response;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
-        //判断是不是http请求
-        if(msg instanceof FullHttpRequest){
-//            HttpRequest httpRequest = (HttpRequest) msg;
-//            parseUri(httpRequest);
-//            parseHttpMethod(httpRequest);
-//            parseHttpHeaders(httpRequest);
-//            parseBody(httpRequest);
-//            FullHttpResponse res = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.copiedBuffer("msg", CharsetUtil.UTF_8));
-//            res.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=utf-8");
-//            HttpUtil.setContentLength(res, res.content().readableBytes());
-//            ctx.writeAndFlush(res).addListener(ChannelFutureListener.CLOSE);
+        //通过编解码器把byteBuf解析成FullHttpRequest
+        if (msg instanceof FullHttpRequest) {
 
             //获取httpRequest
             FullHttpRequest httpRequest = (FullHttpRequest) msg;
-            try{
+
+            try {
+                //获取请求路径、请求体、请求方法
                 String uri = httpRequest.uri();
                 String content = httpRequest.content().toString(CharsetUtil.UTF_8);
                 HttpMethod method = httpRequest.method();
+                System.out.println("服务器接收到请求:");
 
                 //响应
                 String responseMsg = "Hello World";
                 FullHttpResponse response = new DefaultFullHttpResponse(
                         HttpVersion.HTTP_1_1,HttpResponseStatus.OK,
-                        Unpooled.copiedBuffer(responseMsg + "\n",CharsetUtil.UTF_8)
+                        Unpooled.copiedBuffer(responseMsg,CharsetUtil.UTF_8)
                 );
                 response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=UTF-8");
                 ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
-            }finally {
+            } finally {
                 httpRequest.release();
             }
-            super.channelRead(ctx, msg);
+
         }
+        System.out.println("服务端接收到msg数据：" + msg);
+        System.out.println("服务端接收到ctx数据：" + ctx.name());
+        System.out.println("结束");
     }
     /**
      * 获得请求方式

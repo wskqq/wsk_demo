@@ -2,12 +2,17 @@ package example.netty.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import org.apache.commons.lang3.StringUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 
 /**
@@ -30,10 +35,20 @@ public class WskNettyClientTest {
                 .handler(new WskHttpClientInitializer());
 
         try {
-            // 启动客户端
-//            ChannelFuture channelFuture = bootstrap.connect(ip,port).sync();
-//            ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress(ip,port)).sync();
-            ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress(ip,port))
+//            Channel channel = bootstrap.connect(ip,port).sync().channel();
+//            while (true) {
+//                //向服务端发送内容
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//                String content = reader.readLine();
+//                if (StringUtils.isNotEmpty(content)) {
+//                    if (StringUtils.equalsIgnoreCase(content, "q")) {
+//                        System.exit(1);
+//                    }
+//                    channel.writeAndFlush(content);
+//                }
+//            }
+
+            ChannelFuture channel = bootstrap.connect(ip,port)
                     .addListener(new ChannelFutureListener() {
                         @Override
                         public void operationComplete(ChannelFuture channelFuture) throws Exception {
@@ -44,7 +59,7 @@ public class WskNettyClientTest {
                         }
                     });
             // 等待服务端口关闭
-            channelFuture.channel().closeFuture().sync();
+            channel.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             System.out.println(e);
             System.out.println("11111");

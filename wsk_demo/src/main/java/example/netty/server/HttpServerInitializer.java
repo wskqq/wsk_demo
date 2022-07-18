@@ -1,6 +1,7 @@
 package example.netty.server;
 
 import example.netty.server.HttpServerChannelAdapter;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -19,25 +20,21 @@ import io.netty.handler.codec.http.*;
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
-//        ChannelPipeline channelPipeline = socketChannel.pipeline();
-//        // 处理http消息的编解码，该行配置等同于下面两句的配置
-//        channelPipeline.addLast(new HttpServerCodec());
-////        channelPipeline.addLast("httpResponseEndcoder",new HttpResponseEncoder());
-////        channelPipeline.addLast("httpRequestDecoder",new HttpRequestDecoder());
-//        // 添加自定义的ChannelHandler
-//        channelPipeline.addLast(new HttpServerChannelAdapter());
-////        channelPipeline.addLast(new HttpServerChannelHandler());
-
         ChannelPipeline pipeline = socketChannel.pipeline();
 
         //http请求编解码器,请求解码，响应编码
-        pipeline.addLast("serverCodec", new HttpServerCodec());
+//        pipeline.addLast("serverCodec", new HttpServerCodec());
+
         //http请求报文聚合为完整报文，最大请求报文为10M
-        pipeline.addLast("aggregator", new HttpObjectAggregator(10 * 1024 * 1024));
-        //响应报文压缩
-        pipeline.addLast("compress", new HttpContentCompressor());
+//        pipeline.addLast("aggregator", new HttpObjectAggregator(10 * 1024 * 1024));
+//        //响应报文压缩
+//        pipeline.addLast("compress", new HttpContentCompressor());
         //业务处理handler
-//        pipeline.addLast( new HttpServerChannelAdapter());
+//        pipeline.addLast(new HttpServerChannelAdapter());
         pipeline.addLast(new HttpServerChannelHandler());
+        // TODO 添加多个处理器时，服务端就无法接收到客户端请求，原因待分析？？？？？？
+        pipeline.addLast(new HttpServerCodec());
     }
+
+
 }
