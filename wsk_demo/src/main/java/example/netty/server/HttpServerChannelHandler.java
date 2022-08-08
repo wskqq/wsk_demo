@@ -1,58 +1,54 @@
 package example.netty.server;
 
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.*;
-import io.netty.util.CharsetUtil;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * @Description TODO
+ * @Description 官方Demo：服务端自定义处理器
  * @Author wsk
  * @Date 2022/4/28 16:04
  * @Version 1.0
  */
-public class HttpServerChannelHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
+public class HttpServerChannelHandler extends SimpleChannelInboundHandler<String> {
+
+    /**
+     * 读取客户端返回的数据
+     * @param ctx
+     * @param s
+     * @throws Exception
+     */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("服务端接收到的数据：" + msg);
-
-        //通过编解码器把byteBuf解析成FullHttpRequest
-        if (msg instanceof FullHttpRequest) {
-
-            //获取httpRequest
-            FullHttpRequest httpRequest = (FullHttpRequest) msg;
-
-            try {
-                //获取请求路径、请求体、请求方法
-                String uri = httpRequest.uri();
-                String content = httpRequest.content().toString(CharsetUtil.UTF_8);
-                HttpMethod method = httpRequest.method();
-                System.out.println("服务器接收到请求:");
-
-                //响应
-                String responseMsg = "Hello World";
-                FullHttpResponse response = new DefaultFullHttpResponse(
-                        HttpVersion.HTTP_1_1,HttpResponseStatus.OK,
-                        Unpooled.copiedBuffer(responseMsg,CharsetUtil.UTF_8)
-                );
-                response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=UTF-8");
-                ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
-            } finally {
-                httpRequest.release();
-            }
-
-        }
-
+    protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
+        System.out.println("channelRead0》》》》》》》》》》》》》开始");
+        System.out.println("接收到客户端数据[" + s + "]");
+        String responseMsg = "Hello World";
+        ctx.writeAndFlush(responseMsg);
+        System.out.println("服务端响应数据结束》》》》》》》》》》》");
     }
 
+    /**
+     * 客户端发送消息
+     * @param ctx
+     * @throws Exception
+     */
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) throws Exception {
-        System.out.println("channelRead0》》》》》》》》》》》》》开始");
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("服务端channelActive方法》》》》》》》》》》[" + ctx.name() + "]");
+        String responseMsg = "channelActive ";
+        ctx.writeAndFlush(responseMsg);
+    }
+
+    /**
+     * 异常处理方法
+     * @param ctx
+     * @param cause
+     * @throws Exception
+     */
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("服务端exceptionCaught异常处理》》》》》");
+        cause.printStackTrace();
+        ctx.close();
     }
 
 }

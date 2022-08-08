@@ -26,7 +26,20 @@ import java.util.Map;
  */
 public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
     @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("调用channelReadComplete方法》》》》》》》》");
+        ctx.flush();
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("调用exceptionCaught异常方法");
+        ctx.close();
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("服务端接收到数据[" + msg + "]");
         //通过编解码器把byteBuf解析成FullHttpRequest
         if (msg instanceof FullHttpRequest) {
 
@@ -52,10 +65,14 @@ public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
                 httpRequest.release();
             }
 
+        }else{
+            System.out.println("自定义处理器else逻辑开始执行》》》》》》》》》》》》》");
+            //响应
+            String responseMsg = "Hello World";
+            ctx.write(responseMsg);
+            System.out.println("服务端响应数据结束》》》》》》》》》》》");
         }
-        System.out.println("服务端接收到msg数据：" + msg);
-        System.out.println("服务端接收到ctx数据：" + ctx.name());
-        System.out.println("结束");
+
     }
     /**
      * 获得请求方式

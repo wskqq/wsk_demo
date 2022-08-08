@@ -1,22 +1,16 @@
 package example.netty.server;
 
-import example.netty.server.HttpServerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-
-import java.net.InetSocketAddress;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 /**
- * Netty实现Http服务端实现测试类
- * 服务端启动类
- * 测试访问地址：  http://ip:port/
- */
-/**
- * @Description TODO 能运行发送不通交易
+ * @Description 服务端启动类
  * @Author acer
  * @Date 2022/3/3 10:39
  * @Version 1.0
@@ -32,9 +26,11 @@ public class WskNettyServerTest {
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG,128)
                     .childOption(ChannelOption.SO_KEEPALIVE,true)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new HttpServerInitializer());
             ChannelFuture channelFuture = serverBootstrap.bind(8889).sync();
             System.out.println("服务器已开启......");
+
             channelFuture.channel().closeFuture().sync();
         } finally {
             boss.shutdownGracefully();
