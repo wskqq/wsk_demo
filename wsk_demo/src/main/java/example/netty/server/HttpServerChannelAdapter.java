@@ -24,7 +24,7 @@ import java.util.Map;
  * @Date 2022/3/3 10:39
  * @Version 1.0
  */
-public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
+    public class HttpServerChannelAdapter extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("调用channelReadComplete方法》》》》》》》》");
