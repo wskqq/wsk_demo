@@ -1,12 +1,18 @@
 package example;
 
 import example.exception.WskException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
+import sun.applet.AppletClassLoader;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static java.lang.Thread.*;
@@ -19,9 +25,55 @@ import static java.lang.Thread.*;
  */
 public class App
 {
-//    static ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
+    public String test;
+    public class InnerClass{
+        public static final String TEST_01 = "01";
+        String getTest(){
+            return test;
+        }
+    }
+
+    private static class StaticInnerClass{
+        private static final String TEST_02 = "02";
+//        String getTest(){
+//            return test;
+//        }
+    }
+    private static ThreadLocal<Long> threadLocal = new ThreadLocal<Long>(){
+        @Override
+        protected Long initialValue() {
+            return 1L;
+        }
+    };
     Map<String,String> map = new HashMap<String,String>();
+
+    private static final AtomicInteger integer = new AtomicInteger(2147483647);
+
     public static void main( String[] args ) throws InterruptedException {
+//        System.out.println(InnerClass.TEST_01);
+//        System.out.println(StaticInnerClass.TEST_02);
+//        Integer j = 5;
+//        for(int i=0; i< 5; i++){
+//            System.out.println(j--);
+//        }
+
+        for(int i=1; i <10; i++){
+            System.out.println(integer.getAndIncrement());
+        }
+
+//        System.out.println(StringUtils.isNotBlank(null));
+//        System.out.println(StringUtils.isNotBlank("    "));
+
+//        Date nowDate = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+//        try {
+//            Date endDate = sdf.parse("20221019");
+//            System.out.println(nowDate.after(endDate));
+//            System.out.println(nowDate.before(endDate));
+//        } catch (ParseException e) {
+//
+//        }
+
 //        AtomicReference<String> arf = new AtomicReference<>();
 //        String str = arf.get();
 //        ThreadPoolExecutor
@@ -56,7 +108,7 @@ public class App
 
 //          testExecutorService();
 
-        testThreadPoolExecutor();
+//        testThreadPoolExecutor();
 
 //          testThread();
 //        try {
@@ -134,7 +186,7 @@ public class App
     private static ThreadPoolExecutor threadPoolExecutor1 = new ThreadPoolExecutor(2,3,
             30,TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.CallerRunsPolicy());
     public static ThreadPoolExecutor getThreadPoolExecutor(){
-        threadPoolExecutor1.allowCoreThreadTimeOut(true);
+//        threadPoolExecutor1.allowCoreThreadTimeOut(true);
         return threadPoolExecutor1;
     }
     /**
@@ -162,11 +214,6 @@ public class App
                 Runtime.getRuntime().availableProcessors() + "],线程池大小[" +
                 threadPoolExecutor.getPoolSize() + "],核心线程数[" + threadPoolExecutor.getCorePoolSize() + "]");
 
-        try {
-            Thread.sleep(60000L);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
         threadPoolExecutor.execute(new WskRunable());
         System.out.println("最后线程排队数[" + threadPoolExecutor.getQueue().size() + "],当前活动线程数[" +
                 threadPoolExecutor.getActiveCount() + "],CPU核数[" +
@@ -192,11 +239,25 @@ public class App
         @Override
         public void run() {
             Long startTime = System.currentTimeMillis();
-            try {
-                sleep(5000L);
-            } catch (InterruptedException e) {
-                System.out.println("线程休眠失败");
+            for (int i=0; i<2; i++){
+                try {
+                    long num = threadLocal.get();
+                    threadLocal.set(++num);
+                    System.out.println(Thread.currentThread().getName() + "===" + num);
+                    System.out.println(Thread.currentThread().isInterrupted());
+                    if (Thread.currentThread().isInterrupted()){
+                        System.out.println("Thread.currentThread().isInterrupted()");
+                    }
+                    if(i==0){
+                        // 设置线程状态为中断状态true，中断状态调用sleep会报错
+                        Thread.currentThread().interrupt();
+                    }
+                    Thread.sleep(5000L);
+                } catch (InterruptedException e) {
+                    System.out.println("线程休眠失败");
+                }
             }
+
             int n = 0;
             for(;;){
                 n++;
