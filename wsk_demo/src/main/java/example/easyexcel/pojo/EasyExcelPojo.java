@@ -11,6 +11,7 @@ import java.util.Date;
  * @Version 1.0
  */
 public class EasyExcelPojo {
+
     @ExcelProperty("字符串标题")
     private String stringData;
     @ExcelProperty("整型标题")

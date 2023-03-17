@@ -1,0 +1,2 @@
+example.spi.java.service.JavaSpiService=example.spi.java.service.impl.JavaSpiServiceImpl,\
+example.spi.java.service.impl.JavaSpiServiceImpl1

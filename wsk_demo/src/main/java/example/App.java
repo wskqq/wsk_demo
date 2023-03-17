@@ -1,16 +1,27 @@
 package example;
 
 import example.exception.WskException;
+import example.mybatis.mapper.TestMapper;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.executor.BaseExecutor;
+import org.apache.ibatis.executor.SimpleExecutor;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.ReflectionUtils;
 import sun.applet.AppletClassLoader;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.SecureRandom;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -47,9 +58,29 @@ public class App
     };
     Map<String,String> map = new HashMap<String,String>();
 
+
     private static final AtomicInteger integer = new AtomicInteger(2147483647);
 
-    public static void main( String[] args ) throws InterruptedException {
+    public static void main(String[] args ) throws InterruptedException, IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
+        Map resultMap = testMapper.selectByPrimaryId("1");
+//        BaseExecutor baseExecutor = new SimpleExecutor(null, null);
+//        baseExecutor.p
+
+//        List<Map<String, Object>> list = new ArrayList<>(4);
+//        Map<String, Object> dataMap = new HashMap<>(4);
+//        dataMap.put("key1", "12");
+//        dataMap.put("key2", "12");
+//        list.add(dataMap);
+//
+//        dataMap = new HashMap<>(4);
+//        dataMap.put("key1", "13");
+//        dataMap.put("key2", "13");
+//        list.add(dataMap);
 //        System.out.println(InnerClass.TEST_01);
 //        System.out.println(StaticInnerClass.TEST_02);
 //        Integer j = 5;
@@ -57,9 +88,15 @@ public class App
 //            System.out.println(j--);
 //        }
 
-        for(int i=1; i <10; i++){
-            System.out.println(integer.getAndIncrement());
-        }
+//        Calendar calender = Calendar.getInstance();
+//        Date date = new Date();
+//        calender.setTime(date);
+//        System.out.println(calender.get(Calendar.YEAR));
+//        System.out.println(calender.get(Calendar.MONTH));
+//        System.out.println(calender.get(Calendar.DAY_OF_MONTH));
+//        for(int i=1; i <10; i++){
+//            System.out.println(integer.getAndIncrement());
+//        }
 
 //        System.out.println(StringUtils.isNotBlank(null));
 //        System.out.println(StringUtils.isNotBlank("    "));
