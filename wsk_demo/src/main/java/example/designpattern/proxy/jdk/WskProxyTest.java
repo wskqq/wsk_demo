@@ -1,4 +1,7 @@
-package example.designpattern.proxy;
+package example.designpattern.proxy.jdk;
+
+import example.designpattern.proxy.WskProxyInterface;
+import example.designpattern.proxy.WskProxyInterfaceImpl;
 
 import java.lang.reflect.Proxy;
 
