@@ -12,7 +12,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class HttpServerChannelHandler extends SimpleChannelInboundHandler<String> {
 
     /**
-     * 读取客户端返回的数据
+     * 读取客户端返回的数据，telnet通之后，send发送数据执行该方法
      * @param ctx
      * @param s
      * @throws Exception
@@ -22,12 +22,14 @@ public class HttpServerChannelHandler extends SimpleChannelInboundHandler<String
         System.out.println("channelRead0》》》》》》》》》》》》》开始");
         System.out.println("接收到客户端数据[" + s + "]");
         String responseMsg = "Hello World";
+
         ctx.writeAndFlush(responseMsg);
+//        ctx.channel().writeAndFlush(responseMsg);
         System.out.println("服务端响应数据结束》》》》》》》》》》》");
     }
 
     /**
-     * 客户端发送消息
+     * 客户端发送消息, telnet命令执行该方法
      * @param ctx
      * @throws Exception
      */
