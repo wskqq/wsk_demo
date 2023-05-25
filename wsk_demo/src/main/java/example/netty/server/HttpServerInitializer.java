@@ -33,10 +33,10 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = socketChannel.pipeline();
 
         //http请求编解码器,请求解码，响应编码 ChannelInboundHandlerAdapter
-//        pipeline.addLast("serverCodec", new HttpServerCodec());
+//        pipeline.addLast( new HttpServerCodec());
 //
         //http请求报文聚合为完整报文，最大请求报文为10M ChannelInboundHandlerAdapter
-//        pipeline.addLast("aggregator", new HttpObjectAggregator(10 * 1024 * 1024));
+//        pipeline.addLast(new HttpObjectAggregator(10 * 1024 * 1024));
         //响应报文压缩  ChannelInboundHandlerAdapter
 //        pipeline.addLast("compress", new HttpContentCompressor());
         //业务处理handler  ChannelInboundHandlerAdapter
@@ -44,7 +44,7 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
 //        pipeline.addLast(new HttpServerChannelAdapter());
         // TODO 添加方式顺序一：
-        //  如何该channel在HttpServerChannelHandler之前添加，要在HttpServerChannelHandler 之后执行，
+        //  如何该handler在HttpServerChannelHandler之前添加，要在HttpServerChannelHandler 之后执行，
         //  需要在 HttpServerChannelHandler中使用ctx.writeAndFlush(responseMsg);返回信息
         pipeline.addLast(new StringEncoder());
         // TODO ChannelInboundHandlerAdapter
@@ -55,7 +55,7 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
         // ChannelOutboundHandlerAdapter
         // TODO 添加方式顺序二：
-        //  如何该channel在HttpServerChannelHandler之后添加，要在HttpServerChannelHandler 之后执行，
+        //  如何该handler在HttpServerChannelHandler之后添加，要在HttpServerChannelHandler 之后执行，
         //  需要在 HttpServerChannelHandler中使用ctx.channel().writeAndFlush(responseMsg);返回信息
 //        pipeline.addLast(new StringEncoder());
     }

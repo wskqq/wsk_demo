@@ -23,8 +23,10 @@ public class HttpServerChannelHandler extends SimpleChannelInboundHandler<String
         System.out.println("接收到客户端数据[" + s + "]");
         String responseMsg = "Hello World";
 
+        // TODO 两种返回数据的方式与InboundHandler与outboundHandler添加顺序有关
         ctx.writeAndFlush(responseMsg);
 //        ctx.channel().writeAndFlush(responseMsg);
+
         System.out.println("服务端响应数据结束》》》》》》》》》》》");
     }
 
